@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/zf0SpzF/pgs.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCS College Online Test</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+    
+    
+
+    <div class="app">
+        
+        <h1>PCS College Online Quiz 2nd Year English</h1>
+        <!-- <h1>Timer</h1> -->
+         <h1>Find the appropriate synonym</h1>
+        <!-- <div id="timer"></div> -->
+        <form name="submit-to-google-sheet">
+            <input class="styled-input" type="text" name="Name" placeholder="Your Name Here" required style="display: none;" id="nameInput">
+ 
+            <input type="number" name="Number" placeholder="Your Marks Here" required id="input" style="visibility: hidden;">
+           
+
+
+            <button class="styled-button" onclick="showConfirmation()"  type="submit" id="result" style="display: none;" > Submit</button>
+        </form>
+
+
+        <div class="quiz">
+            <h2 id="question">Question Goes Here</h2>
+            <div id="answer-buttons">
+
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <button type="submit" id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Website developed by <strong>Hussain Raza</strong>.</p>
+    </footer>
+    
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbylw80UcKEfgnaC_wZBm4Rcl0P4IwtCJFJ7rSlaJEL5FLlYZPd8Ua-D2wQbZOEHBwzu/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script> 
+
+
+
+    <script src="quiz.js"></script>
+</body>
+
+</html>
